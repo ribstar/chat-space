@@ -1,6 +1,42 @@
 # DB設計
-## groups_usersテーブル
+## users table
 
+|Column|Type|Options|
+|------|----|-------|
+|email|string|null: false,index: true,unique:true|
+|password|string|null: false,index: true,unique:true|
+|nickname|string|null: false,index: true,unique:true|
+
+### Association
+- has_many :groups, through: groups_users
+- has_many :groups_users
+- has_many :messages
+
+## messages table
+
+|Column|Type|Options|
+|------|----|-------|
+|text|text||
+|user_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :group
+
+## groups table
+
+|Column|Type|Options|
+|------|----|-------|
+|group|text||
+|menber|text||
+|user_id|integer|null: false, foreign_key: true|
+
+### Association
+- has_many :users, through: groups_users
+- has_many :groups_users
+- belongs_to :user
+
+## groups_users table
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
