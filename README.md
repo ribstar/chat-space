@@ -1,4 +1,5 @@
 # DB設計
+
 ## users table
 
 |Column|Type|Options|
@@ -37,7 +38,6 @@
 - belongs_to :user
 
 ## groups_users table
-
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
@@ -46,6 +46,7 @@
 ### Association
 - belongs_to :group
 - belongs_to :user
+
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
