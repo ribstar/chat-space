@@ -29,13 +29,12 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|group|text||
-|group_id|integer|null: false, foreign_key: true|
+|name|text|null: false|
 
 ### Association
 - has_many :users, through: groups_users
 - has_many :groups_users
-- belongs_to :messages
+- has_many :messages
 
 ## groups_users table
 |Column|Type|Options|
