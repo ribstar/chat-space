@@ -17,7 +17,9 @@
 |Column|Type|Options|
 |------|----|-------|
 |text|text||
+|image|text||
 |user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -28,13 +30,12 @@
 |Column|Type|Options|
 |------|----|-------|
 |group|text||
-|menber|text||
-|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 
 ### Association
 - has_many :users, through: groups_users
 - has_many :groups_users
-- belongs_to :user
+- belongs_to :messages
 
 ## groups_users table
 |Column|Type|Options|
