@@ -2,32 +2,41 @@
   .area-header
     .area-header__1-box
       %p.area-header__1-box__current-group
-        test
+        = @group.name
       %ul.area-header__1-box__menber-name
-        menber:test
+        menber:
+        %li.menber
+          - @group.group_users.each do |group_user|
+            = group_user.user.name
     .area-header__edit-btn
-      =link_to "#" do
+      =link_to edit_group_path(@group.id) do
         Edit
   .area-message
-    .area-message__2-box
-      %p.area-message__2-box__user-name
-        testman
-      %p.area-message__2-box__time
-        2019/12/26(thu) 12:00
-    %p.area-message__text
-      hellow
-    .area-message__2-box
-      %p.area-message__2-box__user-name
-        testman2
-      %p.area-message__2-box__time
-        2019/12/27(fri) 12:00
-    %p.area-message__text
-      night
-  .area-form
-    .area-form__3-box
-      .area-form__3-box__text
-        %label{class: "area-form__3-box__text__image"}
-          = icon('fas', 'image')
-          %input{type: "file"}
-    .area-form__send-btn
-      Send
+    = render partial: 'message', collection: @messages
+  
+  .form
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit'
+  -# .area-form
+  -#   = form_for [@group, @message] do |f|
+  -#     = f.text_field :content, class: 'area-form__3-box', placeholder: 'type a message'
+  -#     .area-form__3-box__text
+  -#       = f.label :image, class: 'area-form__3-box__text__image' do
+  -#         = icon('fas', 'image', class: 'icon')
+  -#         = f.file_field :image, class: 'hidden'
+  -#     = f.submit 'Send', class: 'area-form__send-btn'
+
+  -# .area-form
+  -#   .area-form__3-box
+  -#     .area-form__3-box__text
+  -#       %label{class: "area-form__3-box__text__image"}
+  -#         = icon('fas', 'image')
+  -#         %input{type: "file"}
+  -#   .area-form__send-btn
+  -#     Send
+  

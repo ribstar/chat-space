@@ -76,6 +76,10 @@
       &__menber-name {
         color: #999999;
         font-size: 12px;
+        .member {
+          display: inline-block;
+          padding-right: 5px;
+        }
       }
     }
     &__edit-btn {
@@ -92,10 +96,11 @@
       }
     }
   }
-    .area-message {
+  .area-message {
     height: calc(100vh - 190px);
     background-color: #fafafa;
     padding: 35px 40px;
+    box-sizing: border-box;
     &__2-box {
       display: flex;
       padding-bottom: 12px;
@@ -115,43 +120,77 @@
       padding-bottom: 46px;
     }
   }
-  .area-form {
-    height: 90px;
+  .form {
     background-color: #d2d2d2;
-    padding: 20px 40px;
-    display: flex;
-    &__3-box {
-      width: 100%;
-      position: relative;
-      display: flex;
-      &__text {
-        padding: 0 40px 0 10px;;
-        width: 100%;
-        height: 50px;
+    box-sizing: border-box;
+    height: 90px;
+    padding: 20px 50px 20px 40px;
+    &__message {
+      border: none;
+      float: left;
+      height: 50px;
+      width: calc(100% - 150px);
+    }
+    &__mask {
+      background-color: white;
+      float: left;
+      height: 50px;
+      padding-right: 10px;
+      &__image {
+        font-size: 30px;
         line-height: 50px;
-        background-color: white;
-        &__image {
-          position: absolute;
-          font-size: 30px;
-          right: 10px;
-          input {
-            display: none;
-          }
-        }
+      }
+      .hidden {
+        display: none;
       }
     }
-    &__send-btn {
-      width: 100px;
-      height: 50px;
-      line-height: 50px;
-      padding: 0 30px;
-      margin-left: 15px;
+    &__submit {
       background-color: #38aef0;
+      border: none;
       color: white;
-    }    
+      float: right;
+      font-size: 16px;
+      height: 50px;
+      margin-left: 15px;
+      padding: 0 30px;
+    }
   }
+  // .area-form {  
+  //   height: 90px;
+  //   background-color: #d2d2d2;
+  //   padding: 20px 40px;
+  //   display: flex;
+  //   &__3-box {
+  //     width: 100%;
+  //     position: relative;
+  //     display: flex;
+  //     &__text {
+  //       padding: 0 40px 0 10px;;
+  //       width: 100%;
+  //       height: 50px;
+  //       line-height: 50px;
+  //       background-color: white;
+  //       &__image {
+  //         position: absolute;
+  //         font-size: 30px;
+  //         right: 10px;
+  //         input {
+  //           display: none;
+  //         }
+  //       }
+  //     }
+  //   }
+  //   &__send-btn {
+  //     width: 100px;
+  //     height: 50px;
+  //     line-height: 50px;
+  //     padding: 0 30px;
+  //     margin-left: 15px;
+  //     background-color: #38aef0;
+  //     color: white;
+  //   }    
+  // }
 }
-
 
 
 
