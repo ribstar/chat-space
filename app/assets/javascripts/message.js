@@ -60,8 +60,10 @@ $(function(){
     })
     .fail(function() {
       alert("メッセージ送信に失敗しました");
-      $('form').find(':submit').removeAttr("disabled");
     });
+    .always(function(){
+      $('form').find(':submit').removeAttr("disabled");
+    })
   });
   
 });
